@@ -361,3 +361,12 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Rezultati testov
+**/TestResults/
+
+# Lokalna SQLite baza
+**/knjigarna.db
+**/knjigarna.db-shm
+**/knjigarna.db-wal
+**/knjigarna.db-journal
