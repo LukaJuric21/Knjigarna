@@ -31,6 +31,15 @@ jobs:
       - name: Build
         run: dotnet build Test/Test.csproj --configuration Release --no-restore
 
+      - name: Run tests and collect coverage
+        run: >
+          dotnet test Knjigarna.Tests/Knjigarna.Tests.csproj
+          --configuration Release
+          --collect "XPlat Code Coverage"
+          --settings Knjigarna.Tests/coverage.runsettings
+          --logger "trx;LogFileName=tests.trx"
+          --results-directory TestResults
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
