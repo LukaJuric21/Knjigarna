@@ -1,6 +1,41 @@
-@Test_HostAddress = http://localhost:5099
+@Test_HostAddress = https://localhost:7028
 
-GET {{Test_HostAddress}}/weatherforecast/
+### Dodaj žanr
+POST {{Test_HostAddress}}/api/zanri
+Content-Type: application/json
+
+{
+  "naziv": "Fantazija"
+}
+
+### Pridobi vse žanre
+GET {{Test_HostAddress}}/api/zanri
 Accept: application/json
 
-###
+### Dodaj knjigo
+POST {{Test_HostAddress}}/api/knjige
+Content-Type: application/json
+
+{
+  "naslov": "Harry Potter in kamen modrosti",
+  "avtor": "J. K. Rowling",
+  "opis": "Zgodba o mladem čarovniku in njegovem prvem letu na Bradavičarki.",
+  "cena": 12.99,
+  "zanrIds": [1]
+}
+
+### Pridobi vse knjige
+GET {{Test_HostAddress}}/api/knjige
+Accept: application/json
+
+### Iskanje po delu naslova
+GET {{Test_HostAddress}}/api/knjige?naslov=harry
+Accept: application/json
+
+### Iskanje z velikimi črkami
+GET {{Test_HostAddress}}/api/knjige?naslov=HARRY
+Accept: application/json
+
+### Iskanje brez zadetkov
+GET {{Test_HostAddress}}/api/knjige?naslov=neobstojeca
+Accept: application/json
